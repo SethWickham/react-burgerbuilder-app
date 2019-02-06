@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 //a global function to define prices
 const INGREDIENT_PRICES = {
-  salad: 0.25,
+  lettuce: 0.25,
   cheese: 0.75,
   meat: 1.0,
   bacon: 0.5
@@ -16,7 +18,7 @@ const INGREDIENT_PRICES = {
 class BurgerBuilder extends Component {
   state = {
     ingredients: {
-      salad: 0,
+      lettuce: 0,
       bacon: 0,
       cheese: 0,
       meat: 0
@@ -78,6 +80,7 @@ class BurgerBuilder extends Component {
     return (
       <div>
         <Aux>
+          <Modal />
           <Burger ingredients={this.state.ingredients} />
           <BuildControls
             ingredientAdded={this.addIngredientHandler}
