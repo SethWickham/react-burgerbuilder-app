@@ -73,12 +73,9 @@ class BurgerBuilder extends Component {
   purchaseCheckerHandler = () => {
     this.setState({ purchaseChecker: true });
   };
-  //cancelPurchaseCheckerHandler = () => {
-  //this.setState({ purchaseChecker: false });
-  //};
 
   purchaseContinueHandler = () => {
-    alert('you continue!');
+    alert('Almost Ready!');
   };
   purchaseCancelHandler = () => {
     this.setState({ purchaseChecker: false });
