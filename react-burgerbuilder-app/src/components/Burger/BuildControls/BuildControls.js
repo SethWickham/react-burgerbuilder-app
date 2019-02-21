@@ -2,6 +2,7 @@ import React from 'react';
 
 import classes from './BuildControls.module.css';
 import BuildControl from './BuildControl/BuildControl';
+import MenuTitle from '../../MenuTitle/MenuTitle';
 
 const controls = [
   { label: 'Lettuce', type: 'lettuce' },
@@ -12,9 +13,10 @@ const controls = [
 
 const buildControls = props => (
   <div className={classes.BuildControls}>
-    <p>
-      Current Price: <strong>${props.price.toFixed(2)}</strong>
-    </p>
+    <MenuTitle
+      title="Single Ingredients"
+      instructions="add or subtract ingredients into your burger"
+    />
     {controls.map(ctrl => (
       <BuildControl
         key={ctrl.label}
@@ -31,6 +33,9 @@ const buildControls = props => (
     >
       ORDER NOW
     </button>
+    <p>
+      Current Price: <strong>${props.price.toFixed(2)}</strong>
+    </p>
   </div>
 );
 
