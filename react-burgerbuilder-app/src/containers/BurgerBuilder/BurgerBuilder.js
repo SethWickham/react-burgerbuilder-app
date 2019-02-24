@@ -78,7 +78,9 @@ class BurgerBuilder extends Component {
     alert('Almost Ready!');
   };
   purchaseCancelHandler = () => {
-    this.setState({ purchaseChecker: false });
+    this.setState({
+      purchaseChecker: false
+    });
   };
 
   render() {
@@ -92,7 +94,10 @@ class BurgerBuilder extends Component {
     return (
       <div>
         <Aux>
-          <Modal showModal={this.state.purchaseChecker}>
+          <Modal
+            showModal={this.state.purchaseChecker}
+            modalClosed={this.purchaseCancelHandler}
+          >
             <OrderSummary
               ingredients={this.state.ingredients}
               price={this.state.totalPrice}
