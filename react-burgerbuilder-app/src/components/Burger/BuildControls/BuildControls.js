@@ -29,7 +29,7 @@ const buildControls = props => (
     ))}
     <MenuTitle
       title="Menu Item Orders"
-      instructions="choose one of these tried and true Burgers"
+      instructions="choose one of these tried and true burgers"
     />
     <MainMenu
       picked1={props.chosen1}
