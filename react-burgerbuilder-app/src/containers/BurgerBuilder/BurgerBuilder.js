@@ -82,6 +82,42 @@ class BurgerBuilder extends Component {
       purchaseChecker: false
     });
   };
+  burgerliciousHandler = () => {
+    this.setState({
+      ingredients: {
+        lettuce: 1,
+        bacon: 2,
+        cheese: 2,
+        meat: 4
+      },
+      totalPrice: 9.75,
+      purchaseEnabled: true
+    });
+  };
+  VeggieDelightHandler = () => {
+    this.setState({
+      ingredients: {
+        lettuce: 5,
+        bacon: 0,
+        cheese: 0,
+        meat: 0
+      },
+      totalPrice: 4.25,
+      purchaseEnabled: true
+    });
+  };
+  meatopolisHandler = () => {
+    this.setState({
+      ingredients: {
+        lettuce: 0,
+        bacon: 5,
+        cheese: 0,
+        meat: 5
+      },
+      totalPrice: 10.5,
+      purchaseEnabled: true
+    });
+  };
 
   render() {
     const disabledInfo = {
@@ -105,7 +141,6 @@ class BurgerBuilder extends Component {
               purchaseContinued={this.purchaseContinueHandler}
             />
           </Modal>
-
           <Burger ingredients={this.state.ingredients} />
           <BuildControls
             ingredientAdded={this.addIngredientHandler}
@@ -114,7 +149,10 @@ class BurgerBuilder extends Component {
             purchaseEnabled={this.state.purchaseEnabled}
             check={this.purchaseCheckerHandler}
             price={this.state.totalPrice}
-          />
+            chosen1={this.burgerliciousHandler}
+            chosen2={this.VeggieDelightHandler}
+            chosen3={this.meatopolisHandler}
+          />{' '}
         </Aux>
       </div>
     );

@@ -3,6 +3,7 @@ import React from 'react';
 import classes from './BuildControls.module.css';
 import BuildControl from './BuildControl/BuildControl';
 import MenuTitle from '../../MenuTitle/MenuTitle';
+import MainMenu from '../../MainMenu/MainMenu';
 
 const controls = [
   { label: 'Lettuce', type: 'lettuce' },
@@ -26,7 +27,16 @@ const buildControls = props => (
         disabled={props.disabled[ctrl.type]}
       />
     ))}
-
+    <MenuTitle
+      title="Menu Item Orders"
+      instructions="choose one of these tried and true Burgers"
+    />
+    <MainMenu
+      picked1={props.chosen1}
+      picked2={props.chosen2}
+      picked3={props.chosen3}
+    />
+    <br />
     <button
       className={classes.OrderButton}
       disabled={!props.purchaseEnabled}
@@ -34,6 +44,7 @@ const buildControls = props => (
     >
       ORDER NOW
     </button>
+
     <p>
       Current Price: <strong>${props.price.toFixed(2)}</strong>
     </p>
