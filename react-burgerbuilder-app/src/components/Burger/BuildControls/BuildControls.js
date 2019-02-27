@@ -2,8 +2,8 @@ import React from 'react';
 
 import classes from './BuildControls.module.css';
 import BuildControl from './BuildControl/BuildControl';
-import MenuTitle from '../../MenuTitle/MenuTitle';
-import MainMenu from '../../MainMenu/MainMenu';
+import MenuTitle from '../../Menu/MenuTitle/MenuTitle';
+import MainMenu from '../../Menu/MainMenu/MainMenu';
 
 const controls = [
   { label: 'Lettuce', type: 'lettuce' },
