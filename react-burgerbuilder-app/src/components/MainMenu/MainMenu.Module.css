@@ -1,0 +1,32 @@
+.MainMenuBtn1 {
+  color: rgb(224, 221, 22);
+  background-color: rgb(3, 23, 134);
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.MainMenuBtn2 {
+  color: rgb(12, 218, 12);
+  background-color: rgb(3, 48, 2);
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.MainMenuBtn3 {
+  color: rgb(173, 17, 17);
+  background-color: rgb(51, 14, 8);
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
