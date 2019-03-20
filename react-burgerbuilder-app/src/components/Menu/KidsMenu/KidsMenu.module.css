@@ -1,0 +1,32 @@
+.KidsMenuBtn1 {
+  color: rgb(224, 221, 22);
+  background-color: rgb(206, 117, 8);
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.KidsMenuBtn2 {
+  color: rgb(19, 168, 19);
+  background-color: lightgreen;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.KidsMenuBtn3 {
+  color: rgb(173, 17, 17);
+  background-color: pink;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}

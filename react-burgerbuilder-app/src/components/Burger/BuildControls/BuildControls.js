@@ -4,6 +4,7 @@ import classes from './BuildControls.module.css';
 import BuildControl from './BuildControl/BuildControl';
 import MenuTitle from '../../Menu/MenuTitle/MenuTitle';
 import MainMenu from '../../Menu/MainMenu/MainMenu';
+import KidsMenu from '../../Menu/KidsMenu/KidsMenu';
 
 const controls = [
   { label: 'Lettuce', type: 'lettuce' },
@@ -35,6 +36,12 @@ const buildControls = props => (
       picked1={props.chosen1}
       picked2={props.chosen2}
       picked3={props.chosen3}
+    />
+    <MenuTitle title="Kids Menu" instructions="our kid friendly options" />
+    <KidsMenu
+      kidPicked1={props.kidChosen1}
+      kidPicked2={props.kidChosen2}
+      kidPicked3={props.kidChosen3}
     />
     <br />
     <button

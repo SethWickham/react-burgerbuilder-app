@@ -118,6 +118,42 @@ class BurgerBuilder extends Component {
       purchaseEnabled: true
     });
   };
+  grilledCheeseHandler = () => {
+    this.setState({
+      ingredients: {
+        lettuce: 0,
+        bacon: 0,
+        cheese: 1,
+        meat: 0
+      },
+      totalPrice: 3.75,
+      purchaseEnabled: true
+    });
+  };
+  miniVeggieHandler = () => {
+    this.setState({
+      ingredients: {
+        lettuce: 1,
+        bacon: 0,
+        cheese: 0,
+        meat: 0
+      },
+      totalPrice: 3.25,
+      purchaseEnabled: true
+    });
+  };
+  miniBurgerHandler = () => {
+    this.setState({
+      ingredients: {
+        lettuce: 0,
+        bacon: 0,
+        cheese: 0,
+        meat: 1
+      },
+      totalPrice: 4.0,
+      purchaseEnabled: true
+    });
+  };
 
   render() {
     const disabledInfo = {
@@ -152,6 +188,9 @@ class BurgerBuilder extends Component {
             chosen1={this.burgerliciousHandler}
             chosen2={this.VeggieDelightHandler}
             chosen3={this.meatopolisHandler}
+            kidChosen1={this.grilledCheeseHandler}
+            kidChosen2={this.miniVeggieHandler}
+            kidChosen3={this.miniBurgerHandler}
           />{' '}
         </Aux>
       </div>
