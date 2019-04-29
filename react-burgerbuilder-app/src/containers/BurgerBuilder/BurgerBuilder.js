@@ -14,7 +14,7 @@ const INGREDIENT_PRICES = {
   bacon: 0.5
 };
 
-//This is our Main Burger Builder Component
+//This is our Main Burger Builder  Stateful Component
 class BurgerBuilder extends Component {
   state = {
     ingredients: {
