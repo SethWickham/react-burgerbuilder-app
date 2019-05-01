@@ -88,9 +88,9 @@ class BurgerBuilder extends Component {
         lettuce: 1,
         bacon: 2,
         cheese: 2,
-        meat: 4
+        meat: 2
       },
-      totalPrice: 9.75,
+      totalPrice: 7.75,
       purchaseEnabled: true
     });
   };
@@ -167,8 +167,8 @@ class BurgerBuilder extends Component {
       <div>
         <Aux>
           <Modal
-            showModal={this.state.purchaseChecker}
-            modalClosed={this.purchaseCancelHandler}
+            show={this.state.purchaseChecker}
+            closed={this.purchaseCancelHandler}
           >
             <OrderSummary
               ingredients={this.state.ingredients}
