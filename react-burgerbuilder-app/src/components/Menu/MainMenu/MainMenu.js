@@ -3,7 +3,7 @@ import classes from './MainMenu.module.css';
 
 const mainMenu = props => {
   return (
-    <div>
+    <div className={classes.Display}>
       <button className={classes.MainMenuBtn1} onClick={props.picked1}>
         Burgerlicious
       </button>

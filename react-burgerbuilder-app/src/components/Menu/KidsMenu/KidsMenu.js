@@ -3,7 +3,7 @@ import classes from './KidsMenu.module.css';
 
 const kidsMenu = props => {
   return (
-    <div>
+    <div className={classes.Display}>
       <button className={classes.KidsMenuBtn1} onClick={props.kidPicked1}>
         Grilled Cheese
       </button>
