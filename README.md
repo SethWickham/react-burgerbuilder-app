@@ -1,3 +1,6 @@
-Need npm i and npm i axios to get started 
+Need to install: 
+npm i 
+npm i axios  
 
-run with command- npm start
+run application:
+npm start 
