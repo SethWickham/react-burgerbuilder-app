@@ -20,18 +20,20 @@ const INGREDIENT_PRICES = {
 //This is our Main Burger Builder  Stateful Component
 class BurgerBuilder extends Component {
   state = {
-    ingredients: {
-      lettuce: 0,
-      bacon: 0,
-      cheese: 0,
-      meat: 0
-    },
-
+    ingredients: null,
     totalPrice: 3,
     purchaseEnabled: false,
     purchaseChecker: false,
     loading: false
   };
+
+  componentDidMount() {
+    axios
+      .get('https://react-burgerbuilder-d3e6e.firebaseio.com/ingredients.json')
+      .then(response => {
+        this.setState({ ingredients: response.data });
+      });
+  }
 
   updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
@@ -85,6 +87,7 @@ class BurgerBuilder extends Component {
       ingredients: this.state.ingredients,
       // typically total price is calculated on the server to make sure user doesn't manipulate the price
       price: this.state.totalPrice,
+      //test data
       customer: {
         name: 'Seth Wickham',
         address: {
@@ -190,28 +193,11 @@ class BurgerBuilder extends Component {
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
-    let orderSummary = (
-      <OrderSummary
-        ingredients={this.state.ingredients}
-        price={this.state.totalPrice}
-        purchaseCancelled={this.purchaseCancelHandler}
-        purchaseContinued={this.purchaseContinueHandler}
-      />
-    );
-    if (this.state.loading) {
-      orderSummary = <Spinner />;
-    }
-
-    return (
-      <div>
+    let orderSummary = null;
+    let burger = <Spinner />;
+    if (this.state.ingredients) {
+      burger = (
         <Aux>
-          <Modal
-            show={this.state.purchaseChecker}
-            closed={this.purchaseCancelHandler}
-          >
-            {' '}
-            {orderSummary}
-          </Modal>
           <Burger ingredients={this.state.ingredients} />
           <BuildControls
             ingredientAdded={this.addIngredientHandler}
@@ -226,7 +212,32 @@ class BurgerBuilder extends Component {
             kidChosen1={this.grilledCheeseHandler}
             kidChosen2={this.miniVeggieHandler}
             kidChosen3={this.miniBurgerHandler}
-          />{' '}
+          />
+        </Aux>
+      );
+      orderSummary = (
+        <OrderSummary
+          ingredients={this.state.ingredients}
+          price={this.state.totalPrice}
+          purchaseCancelled={this.purchaseCancelHandler}
+          purchaseContinued={this.purchaseContinueHandler}
+        />
+      );
+    }
+    if (this.state.loading) {
+      orderSummary = <Spinner />;
+    }
+
+    return (
+      <div>
+        <Aux>
+          <Modal
+            show={this.state.purchaseChecker}
+            closed={this.purchaseCancelHandler}
+          >
+            {orderSummary}
+          </Modal>
+          {burger}
         </Aux>
       </div>
     );
