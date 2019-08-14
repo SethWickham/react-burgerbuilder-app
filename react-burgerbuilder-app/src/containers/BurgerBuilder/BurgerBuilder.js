@@ -19,19 +19,24 @@ const INGREDIENT_PRICES = {
 
 //This is our Main Burger Builder  Stateful Component
 class BurgerBuilder extends Component {
-  state = {
-    ingredients: null,
-    totalPrice: 3,
-    purchaseEnabled: false,
-    purchaseChecker: false,
-    loading: false
-  };
-
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ingredients: null,
+      totalPrice: 3,
+      purchaseEnabled: false,
+      purchaseChecker: false,
+      loading: false,
+      error: false
+    };
+    // our get request to our firebase database getting our ingredients
     axios
       .get('https://react-burgerbuilder-d3e6e.firebaseio.com/ingredients.json')
       .then(response => {
         this.setState({ ingredients: response.data });
+      })
+      .catch(error => {
+        this.setState({ error: true });
       });
   }
 
@@ -99,6 +104,7 @@ class BurgerBuilder extends Component {
         deliverySpeed: 'fastest'
       }
     };
+    // post request to database
     axios
       .post('/orders.json', order)
       .then(response => {
@@ -194,7 +200,11 @@ class BurgerBuilder extends Component {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
     let orderSummary = null;
-    let burger = <Spinner />;
+    let burger = this.state.error ? (
+      <p>Ingredients can't be loaded</p>
+    ) : (
+      <Spinner />
+    );
     if (this.state.ingredients) {
       burger = (
         <Aux>
